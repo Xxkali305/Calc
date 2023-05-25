@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body style="background-color:#9966cc;">
+  <title>Temperature Conversion</title>
+  <style>
+    label, select, input, button {
+      font-size: 45px;
+      font-weight: bold;
+      color: black
+      }
+
+      #result {
+        font-size: 56px;
+        color:#66ff00
+      }
+  </style>
+  <script>
+    function convertTemperature() {
+      var type = document.getElementById('type').value;
+      var value = parseFloat(document.getElementById('value').value);
+      var resultElement = document.getElementById('result');
+
+      if (type === 'c') {
+        var result = (value * 9/5 + 32).toFixed(1);
+        resultElement.innerHTML = value + " Celsius is " + result + " Fahrenheit.";
+      } else if (type === 'f') {
+        var result = ((value - 32) * 5/9).toFixed(1);
+        resultElement.innerHTML = value + " Fahrenheit is " + result + " Celsius.";
+      } else {
+        resultElement.innerHTML = "Invalid conversion type.";
+      }
+    }
+  </script>
+</body>
+<body>
+  <label for="type">Choose conversion type:</label>
+  <select id="type">
+    <option value="c">Celsius to Fahrenheit</option>
+    <option value="f">Fahrenheit to Celsius</option>
+  </select>
+  <br>
+  <label for="value">Enter value:</label>
+  <input type="number" id="value">
+  <br>
+  <button onclick="convertTemperature()">Convert</button>
+  <br>
+  <div id="result"></div>
+</body>
+</html>
